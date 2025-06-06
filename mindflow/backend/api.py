@@ -9,12 +9,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 
 # Load environment variables and configure OpenAI
-load_dotenv()
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), ".env"))
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-load_dotenv()
-
-app = FastAPI(title="Workflow Creator API", version="1.0.0")
+app = FastAPI(title="MindFlow API", version="1.0.0")
 
 # Configure CORS
 app.add_middleware(

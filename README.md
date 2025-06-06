@@ -44,3 +44,36 @@ MindFlow is a Streamlit-based web app that leverages OpenAI’s API to turn user
    ```bash
    git clone https://github.com/<username>/MindFlow.git
    cd MindFlow
+
+2. **Create & Activate Virtual Environment**
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+
+3. **Install Python Dependencies**
+   ```bash
+   pip install -r mindflow/backend/requirements.txt   // backend
+   pip install -r mindflow/frontend/requirements.txt  // frontend
+
+4. **Install Graphviz**
+   ```bash
+   macOS (Homebrew): brew install graphviz
+   Ubuntu/Debian: sudo apt-get install graphviz
+   Windows: Download & install from graphviz.org, then add the bin folder to your PATH.
+
+
+## 🎉  Launch
+1. **Frontend**
+   In Terminal
+   ```bash
+   cd mindflow/frontend
+   streamlit run app.py
+
+
+
+2. **Backend**
+   In seperate Terminal
+   ```bash
+   cd mindflow/backend
+   uvicorn api:app --reload --host 0.0.0.0 --port 8000
+

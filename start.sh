@@ -1,24 +1,29 @@
 #!/bin/bash
 
-# Check if virtual environment exists
+# 1. Create & activate the virtual environment if it doesn’t exist
 if [ ! -d ".venv" ]; then
     echo "Creating virtual environment..."
-    python -m venv .venv
+    python3 -m venv .venv
 fi
-
-# Activate virtual environment
 source .venv/bin/activate
 
-# Install dependencies
-pip install -r requirements.txt
+# 2. Install backend dependencies
+echo "Installing backend dependencies..."
+pip install -r mindflow/backend/requirements.txt
 
-# Start API server in background
-echo "Starting API server..."
-python -m uvicorn api:app --reload --host 0.0.0.0 --port 8000 &
+# 3. Install frontend dependencies
+echo "Installing frontend dependencies..."
+pip install -r mindflow/frontend/requirements.txt
 
-# Wait for API server to start
+# 4. Start the FastAPI backend in the background
+echo "Starting FastAPI backend..."
+cd mindflow/backend
+uvicorn api:app --reload --host 0.0.0.0 --port 8000 &
+
+# 5. Give the backend a moment to spin up
 sleep 2
 
-# Start Streamlit app
-echo "Starting Streamlit app..."
+# 6. Start the Streamlit frontend
+echo "Starting Streamlit frontend..."
+cd ../frontend
 streamlit run app.py
