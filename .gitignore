@@ -10,6 +10,7 @@ venv/
 
 # Ignore backend secrets
 mindflow/backend/.env
+mindflow/frontend/.env
 
 # Ignore pytest cache
 .pytest_cache
