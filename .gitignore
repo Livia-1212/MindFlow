@@ -1,0 +1,9 @@
+.DS_Store
+.pytest_cache
+__pycache__
+*.pyc
+*.pyo
+package.json
+venv/
+.venv/
+
