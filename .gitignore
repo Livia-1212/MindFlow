@@ -6,4 +6,6 @@ __pycache__
 package.json
 venv/
 .venv/
+**/.git
 
+**/.git
