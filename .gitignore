@@ -1,11 +1,23 @@
-.DS_Store
-.pytest_cache
+# Ignore Python bytecode and venv
 __pycache__
 *.pyc
 *.pyo
-package.json
 venv/
 .venv/
+
+# Ignore macOS metadata 
+.DS_Store
+
+# Ignore backend secrets
+mindflow/backend/.env
+
+# Ignore pytest cache
+.pytest_cache
+
+# Ignore unused files
+package.json
+
+# Ignore nested git repositories
 **/.git
-mindflow/.env
+
 
